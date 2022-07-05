@@ -5,6 +5,7 @@ namespace xadrez
 {
     class PartidaDeXadrez
     {
+
         public Tabuleiro tab { get; private set; }
         public int turno { get; private set; }
         public Cor jogadorAtual { get; private set; }
@@ -38,7 +39,7 @@ namespace xadrez
                 capturadas.Add(pecaCapturada);
             }
 
-            // Jogada especial roque pequeno
+            // #jogadaespecial roque pequeno
             if (p is Rei && destino.coluna == origem.coluna + 2)
             {
                 Posicao origemT = new Posicao(origem.linha, origem.coluna + 3);
@@ -48,7 +49,7 @@ namespace xadrez
                 tab.colocarPeca(T, destinoT);
             }
 
-            // Jogada especial roque grande
+            // #jogadaespecial roque grande
             if (p is Rei && destino.coluna == origem.coluna - 2)
             {
                 Posicao origemT = new Posicao(origem.linha, origem.coluna - 4);
@@ -58,7 +59,7 @@ namespace xadrez
                 tab.colocarPeca(T, destinoT);
             }
 
-            // Jogada especial En Passant
+            // #jogadaespecial en passant
             if (p is Peao)
             {
                 if (origem.coluna != destino.coluna && pecaCapturada == null)
@@ -91,7 +92,7 @@ namespace xadrez
             }
             tab.colocarPeca(p, origem);
 
-            // Jogada especial roque pequeno
+            // #jogadaespecial roque pequeno
             if (p is Rei && destino.coluna == origem.coluna + 2)
             {
                 Posicao origemT = new Posicao(origem.linha, origem.coluna + 3);
@@ -101,7 +102,7 @@ namespace xadrez
                 tab.colocarPeca(T, origemT);
             }
 
-            // Jogada especial roque grande
+            // #jogadaespecial roque grande
             if (p is Rei && destino.coluna == origem.coluna - 2)
             {
                 Posicao origemT = new Posicao(origem.linha, origem.coluna - 4);
@@ -111,7 +112,7 @@ namespace xadrez
                 tab.colocarPeca(T, origemT);
             }
 
-            // Jogada especial En passant
+            // #jogadaespecial en passant
             if (p is Peao)
             {
                 if (origem.coluna != destino.coluna && pecaCapturada == vulneravelEnPassant)
@@ -143,7 +144,7 @@ namespace xadrez
 
             Peca p = tab.peca(destino);
 
-            //Jogada especial promocao
+            // #jogadaespecial promocao
             if (p is Peao)
             {
                 if ((p.cor == Cor.Branca && destino.linha == 0) || (p.cor == Cor.Preta && destino.linha == 7))
@@ -173,9 +174,9 @@ namespace xadrez
             {
                 turno++;
                 mudaJogador();
-            }           
+            }
 
-            //Jogada especial En Passant
+            // #jogadaespecial en passant
             if (p is Peao && (destino.linha == origem.linha - 2 || destino.linha == origem.linha + 2))
             {
                 vulneravelEnPassant = p;
@@ -184,6 +185,7 @@ namespace xadrez
             {
                 vulneravelEnPassant = null;
             }
+
         }
 
         public void validarPosicaoDeOrigem(Posicao pos)
@@ -206,7 +208,7 @@ namespace xadrez
         {
             if (!tab.peca(origem).movimentoPossivel(destino))
             {
-                throw new TabuleiroException("Posição de destino inválida! ");
+                throw new TabuleiroException("Posição de destino inválida!");
             }
         }
 
@@ -233,7 +235,7 @@ namespace xadrez
                 }
             }
             return aux;
-        }     
+        }
 
         public HashSet<Peca> pecasEmJogo(Cor cor)
         {
@@ -317,7 +319,7 @@ namespace xadrez
                             }
                         }
                     }
-                }                
+                }
             }
             return true;
         }

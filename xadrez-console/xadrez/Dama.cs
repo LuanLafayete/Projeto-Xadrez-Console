@@ -2,8 +2,10 @@
 
 namespace xadrez
 {
+
     class Dama : Peca
     {
+
         public Dama(Tabuleiro tab, Cor cor) : base(tab, cor)
         {
         }
@@ -25,7 +27,7 @@ namespace xadrez
 
             Posicao pos = new Posicao(0, 0);
 
-            //Esquerda
+            // esquerda
             pos.definirValores(posicao.linha, posicao.coluna - 1);
             while (tab.posicaoValida(pos) && podeMover(pos))
             {
@@ -37,7 +39,7 @@ namespace xadrez
                 pos.definirValores(pos.linha, pos.coluna - 1);
             }
 
-            //Direita
+            // direita
             pos.definirValores(posicao.linha, posicao.coluna + 1);
             while (tab.posicaoValida(pos) && podeMover(pos))
             {
@@ -49,7 +51,7 @@ namespace xadrez
                 pos.definirValores(pos.linha, pos.coluna + 1);
             }
 
-            //Acima
+            // acima
             pos.definirValores(posicao.linha - 1, posicao.coluna);
             while (tab.posicaoValida(pos) && podeMover(pos))
             {
@@ -61,7 +63,7 @@ namespace xadrez
                 pos.definirValores(pos.linha - 1, pos.coluna);
             }
 
-            //Abaixo
+            // abaixo
             pos.definirValores(posicao.linha + 1, posicao.coluna);
             while (tab.posicaoValida(pos) && podeMover(pos))
             {
@@ -73,7 +75,7 @@ namespace xadrez
                 pos.definirValores(pos.linha + 1, pos.coluna);
             }
 
-            //Noroeste
+            // NO
             pos.definirValores(posicao.linha - 1, posicao.coluna - 1);
             while (tab.posicaoValida(pos) && podeMover(pos))
             {
@@ -85,7 +87,7 @@ namespace xadrez
                 pos.definirValores(pos.linha - 1, pos.coluna - 1);
             }
 
-            //Nordeste
+            // NE
             pos.definirValores(posicao.linha - 1, posicao.coluna + 1);
             while (tab.posicaoValida(pos) && podeMover(pos))
             {
@@ -97,7 +99,7 @@ namespace xadrez
                 pos.definirValores(pos.linha - 1, pos.coluna + 1);
             }
 
-            //Sudeste
+            // SE
             pos.definirValores(posicao.linha + 1, posicao.coluna + 1);
             while (tab.posicaoValida(pos) && podeMover(pos))
             {
@@ -109,7 +111,7 @@ namespace xadrez
                 pos.definirValores(pos.linha + 1, pos.coluna + 1);
             }
 
-            //Sudoeste
+            // SO
             pos.definirValores(posicao.linha + 1, posicao.coluna - 1);
             while (tab.posicaoValida(pos) && podeMover(pos))
             {
@@ -123,6 +125,5 @@ namespace xadrez
 
             return mat;
         }
-
     }
 }
