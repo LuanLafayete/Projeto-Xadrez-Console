@@ -27,7 +27,7 @@ namespace xadrez
             colocarPecas();
         }
 
-        public Peca executarMovimento(Posicao origem, Posicao destino)
+        public Peca executaMovimento(Posicao origem, Posicao destino)
         {
             Peca p = tab.retirarPeca(origem);
             p.incrementarQteMovimentos();
@@ -131,9 +131,9 @@ namespace xadrez
             }
         }
 
-        public void realizaJogada(Posicao origem,Posicao destino)
+        public void realizaJogada(Posicao origem, Posicao destino)
         {
-            Peca pecaCapturada = executarMovimento(origem, destino);
+            Peca pecaCapturada = executaMovimento(origem, destino);
 
             if (estaEmXeque(jogadorAtual))
             {
@@ -308,7 +308,7 @@ namespace xadrez
                         {
                             Posicao origem = x.posicao;
                             Posicao destino = new Posicao(i, j);
-                            Peca pecaCapturada = executarMovimento(origem, destino);
+                            Peca pecaCapturada = executaMovimento(origem, destino);
                             bool testeXeque = estaEmXeque(cor);
                             desfazMovimento(origem, destino, pecaCapturada);
                             if (!testeXeque)

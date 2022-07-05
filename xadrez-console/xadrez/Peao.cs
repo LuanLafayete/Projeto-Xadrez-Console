@@ -42,7 +42,8 @@ namespace xadrez
                 }
 
                 pos.definirValores(posicao.linha - 2, posicao.coluna);
-                if (tab.posicaoValida(pos) && livre(pos) && qteMovimentos == 0)
+                Posicao p2 = new Posicao(posicao.linha, posicao.coluna);
+                if (tab.posicaoValida(p2) && livre(p2) && tab.posicaoValida(pos) && livre(pos) && qteMovimentos == 0)
                 {
                     mat[pos.linha, pos.coluna] = true;
                 }
@@ -67,7 +68,7 @@ namespace xadrez
                     {
                         mat[esquerda.linha - 1, esquerda.coluna] = true;
                     }
-                    Posicao direita = new Posicao(posicao.linha, posicao.coluna - 1);
+                    Posicao direita = new Posicao(posicao.linha, posicao.coluna + 1);
                     if (tab.posicaoValida(direita) && existeInimigo(direita) && tab.peca(direita) == partida.vulneravelEnPassant)
                     {
                         mat[direita.linha - 1, direita.coluna] = true;
@@ -83,7 +84,8 @@ namespace xadrez
                 }
 
                 pos.definirValores(posicao.linha + 2, posicao.coluna);
-                if (tab.posicaoValida(pos) && livre(pos) && qteMovimentos == 0)
+                Posicao p2 = new Posicao(posicao.linha + 1, posicao.coluna);
+                if (tab.posicaoValida(pos) && livre(p2) && tab.posicaoValida(pos) && livre(pos) && qteMovimentos == 0)
                 {
                     mat[pos.linha, pos.coluna] = true;
                 }
@@ -108,7 +110,7 @@ namespace xadrez
                     {
                         mat[esquerda.linha + 1, esquerda.coluna] = true;
                     }
-                    Posicao direita = new Posicao(posicao.linha, posicao.coluna - 1);
+                    Posicao direita = new Posicao(posicao.linha, posicao.coluna + 1);
                     if (tab.posicaoValida(direita) && existeInimigo(direita) && tab.peca(direita) == partida.vulneravelEnPassant)
                     {
                         mat[direita.linha + 1, direita.coluna] = true;

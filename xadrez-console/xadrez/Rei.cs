@@ -125,7 +125,7 @@ namespace xadrez
                         mat[posicao.linha, posicao.coluna - 2] = true;
                     }
                 }
-            }           
+            } 
 
             return mat;
         }
