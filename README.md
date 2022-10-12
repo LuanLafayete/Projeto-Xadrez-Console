@@ -1,4 +1,4 @@
-#PROJETO JOGO DE XADREZ NO CONSOLE
+# PROJETO JOGO DE XADREZ NO CONSOLE
 
 Projeto desenvolvido duranto o curso da UDEMY com o professor Nélio Alves.
 
